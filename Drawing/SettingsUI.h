@@ -10,20 +10,14 @@ using namespace sf;
 class SettingsUI
 {
 private:
-
+	SettingsMgr * ptr;
+	CircleShape redButton;
+	CircleShape greenButton;
+	CircleShape blueButton;
+	CircleShape circleButton;
+	RectangleShape rectButton;
 public:
-	SettingsUI(SettingsMgr *mgr)
-	{
-
-	}
-	void handleMouseUp(Vector2f mouse)
-	{
-
-	}
-
-	void draw(RenderWindow& win)
-	{
-
-	}
-
+	SettingsUI(SettingsMgr *mgr);
+	void handleMouseUp(Vector2f mouse);
+	void draw(RenderWindow& win);
 };

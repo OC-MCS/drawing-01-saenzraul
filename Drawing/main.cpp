@@ -1,5 +1,5 @@
 //================================================
-// YOUR NAME GOES HERE <-----------------  
+// Raul Saenz <-----------------  
 //================================================
 #include <iostream>
 #include <fstream>
@@ -29,6 +29,18 @@ int main()
 	DrawingUI   drawingUI(Vector2f(200, 50));
 	
 	// ********* Add code here to make the managers read from shapes file (if the file exists)
+	 //input file object
+
+	fstream saveFile;
+	saveFile.open("shapes.bin", ios::binary | ios::in);
+
+	if (saveFile){
+		SettingsMgr.read(saveFile);
+		ShapeMgr.read(saveFile);
+		saveFile.close();
+	}else{
+		cout << "The current is Empty" << endl;
+	}
 
 	while (window.isOpen()) 
 	{
@@ -39,6 +51,9 @@ int main()
 			{
 				window.close();
 				// ****** Add code here to write all data to shapes file
+				saveFile.open("shapes.bin", ios::out | ios::binary);
+				SettingsMgr.write(saveFile);
+				ShapeMgr.write(saveFile);
 			}
 			else if (event.type == Event::MouseButtonReleased)
 			{
@@ -75,4 +90,9 @@ int main()
 	} // end body of animation loop
 
 	return 0;
+}
+
+void die(string msg) {
+	cout << msg << endl;
+	exit(-1);
 }
