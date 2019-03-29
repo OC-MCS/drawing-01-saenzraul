@@ -11,10 +11,14 @@ enum ShapeEnum { CIRCLE, SQUARE };
 class SettingsMgr
 {
 private:
-	
+
+	Color currentColor;
+	ShapeEnum currentShape;
+
 public:
 	SettingsMgr(Color startingColor, ShapeEnum startingShape )
 	{
+
 	}
 
 	Color getCurColor()
